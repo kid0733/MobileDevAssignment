@@ -33,6 +33,11 @@ class DetailActivity : AppCompatActivity() {
         setSupportActionBar(binding.toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         
+        // Set up logout button
+        binding.buttonLogout.setOnClickListener {
+            logout()
+        }
+        
         // Get entity data from intent and display it
         displayEntityData()
     }

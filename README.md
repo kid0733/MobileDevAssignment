@@ -4,59 +4,6 @@
 
 This is a comprehensive Android application built for the NIT3213 assignment, showcasing modern mobile development practices. The app features a dynamic, API-driven architecture that can adapt to various data structures without hardcoded dependencies.
 
-## 🚀 Quick Start Guide
-
-### Prerequisites
-- **Android Studio**: Flamingo (2022.3.1) or newer
-- **Java**: JDK 11 or higher
-- **Android SDK**: API level 30 or higher
-- **Git**: For version control
-
-### 📱 How to Run the Application
-
-1. **Clone the Repository**
-   ```bash
-   git clone https://github.com/kid0733/MobileDevAssignment.git
-   cd MobileDevAssignment
-   ```
-
-2. **Open in Android Studio**
-   - Launch Android Studio
-   - Click "Open an Existing Project"
-   - Navigate to the cloned directory and select it
-   - Wait for Gradle sync to complete
-
-3. **Configure the Project**
-   - Ensure you have Android SDK API 30+ installed
-   - Let Gradle download all dependencies automatically
-   - No additional configuration needed
-
-4. **Run the Application**
-   - Connect an Android device (API 30+) OR start an emulator
-   - Click the "Run" button (green triangle) in Android Studio
-   - Select your target device
-   - The app will build and install automatically
-
-5. **Test Login Credentials**
-   - Username: `Siddhant`
-   - Password: `s8091542`
-   - Use Sydney endpoint for authentication
-
-### 🛠️ Build Commands (Optional)
-```bash
-# Clean build
-./gradlew clean
-
-# Build debug APK
-./gradlew assembleDebug
-
-# Run tests
-./gradlew test
-
-# Install on connected device
-./gradlew installDebug
-```
-
 ## 🎯 Core Objectives
 
 The application demonstrates expertise in:
@@ -68,10 +15,10 @@ The application demonstrates expertise in:
 ## 🏗️ System Architecture
 
 Built using **MVVM (Model-View-ViewModel)** pattern featuring:
-- **ViewBinding** for type-safe view access
+- **Data Binding** for efficient view management
 - **ViewModel** for business logic separation
 - **LiveData** for reactive programming
-- **Hilt** for dependency injection
+- **Hilt** for dependency management
 - **Retrofit** for network operations
 - **Kotlin Coroutines** for async processing
 
@@ -109,15 +56,15 @@ POST /ort/auth
 **Authentication Payload:**
 ```json
 {
-  "username": "StudentFirstName",
-  "password": "sStudentNumber"
+  \"username\": \"StudentFirstName\",
+  \"password\": \"sStudentNumber\"
 }
 ```
 
 **Success Response:**
 ```json
 {
-  "keypass": "accessToken"
+  \"keypass\": \"accessToken\"
 }
 ```
 
@@ -129,79 +76,44 @@ GET /dashboard/{accessToken}
 **Response Format:**
 ```json
 {
-  "entities": [
+  \"entities\": [
     {
-      "field1": "data1",
-      "field2": "data2", 
-      "description": "Entity description"
+      \"field1\": \"data1\",
+      \"field2\": \"data2\", 
+      \"description\": \"Entity description\"
     }
   ],
-  "entityTotal": 5
+  \"entityTotal\": 5
 }
 ```
 
 ## 🔧 Technical Implementation
 
-### Key Innovation: Dynamic Entity System
+### Adaptive Data Management
+- **Flexible Entity System**: Handles any JSON structure using key-value mapping
+- **Dynamic UI Generation**: Interface adapts based on API response format
+- **Multi-endpoint Support**: Configurable authentication based on location
+
+### Core Components
+
+#### Entity Data Model
 ```kotlin
 data class Entity(val properties: Map<String, Any>)
 ```
+- Stores information as flexible key-value pairs
+- Accommodates any JSON response structure
+- Includes utility methods for data access
 
-**Why this is brilliant:**
-- **Universal Data Adapter**: Works with any JSON structure
-- **Future-Proof**: API changes don't break the app
-- **Zero Hardcoding**: No predefined field assumptions
-- **Dynamic UI**: Interface adapts to data structure
+#### Application Flow
+1. **Authentication**: Login → Validate → Receive Token
+2. **Data Loading**: Token → Fetch Entities → Display List
+3. **Detail Navigation**: Select Item → Show Complete Info
 
-### Core Architecture Components
-
-#### Data Layer
-- **ApiService**: Retrofit interface for HTTP calls
-- **MainRepository**: Single source of truth for data
-- **NetworkModule**: Hilt dependency injection setup
-- **Entity Models**: Dynamic and traditional data models
-
-#### Business Logic Layer
-- **LoginViewModel**: Authentication state management
-- **DashboardViewModel**: Entity list and loading states
-- **LiveData Observers**: Reactive UI updates
-
-#### UI Layer
-- **LoginActivity**: Authentication interface
-- **DashboardActivity**: Entity list with RecyclerView
-- **DetailActivity**: Individual entity display
-- **EntityAdapter**: Dynamic list adapter
-
-### Network Infrastructure
-- **OkHttp**: HTTP client with logging and DNS fallback
-- **Retrofit**: Type-safe API calls
-- **Gson**: JSON parsing with custom Entity deserializer
-- **Coroutines**: Background processing
-
-## 📋 Project Structure
-
-```
-app/src/main/java/com/example/nit3213app/
-├── data/
-│   ├── api/ApiService.kt
-│   └── model/
-│       ├── Entity.kt           # Core innovation
-│       ├── LoginRequest.kt
-│       ├── LoginResponse.kt
-│       └── DashboardResponse.kt
-├── di/NetworkModule.kt         # Dependency injection
-├── repository/MainRepository.kt
-├── ui/
-│   ├── login/LoginActivity.kt
-│   ├── dashboard/
-│   │   ├── DashboardActivity.kt
-│   │   └── EntityAdapter.kt
-│   └── detail/DetailActivity.kt
-├── viewmodel/
-│   ├── LoginViewModel.kt
-│   └── DashboardViewModel.kt
-└── NIT3213Application.kt      # Hilt setup
-```
+#### Network Infrastructure
+- **Retrofit** for HTTP operations
+- **Gson** for JSON serialization
+- **OkHttp** for request logging and monitoring
+- **Coroutines** for background processing
 
 ## 📋 Feature Implementation Status
 
@@ -225,71 +137,65 @@ app/src/main/java/com/example/nit3213app/
 - [x] User-friendly layout design
 - [x] Professional information presentation
 
-### ✅ Technical Excellence
-- [x] MVVM architecture implementation
-- [x] Hilt dependency injection
-- [x] ViewBinding for type safety
-- [x] Reactive programming with LiveData
-- [x] Professional error handling
-- [x] Modern UI design
-
 ## 🎨 Design Philosophy
 
 - **Material Design 3** implementation
-- **Dark theme** with neon accents
-- **Adaptive layouts** for different screen sizes
-- **Smooth animations** and loading states
-- **Intuitive navigation** and error messaging
-- **Professional visual hierarchy**
+- **Modern, clean interface**
+- **Adaptive layouts**
+- **Smooth loading animations**
+- **Intuitive error messaging**
+- **Cohesive visual design system**
+
+## 🛠️ Development Setup
+
+### System Requirements
+- Android Studio Flamingo or newer
+- Android SDK API 30+
+- Kotlin 1.8.0+
+
+### Key Dependencies
+```gradle
+implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx'
+implementation 'androidx.lifecycle:lifecycle-livedata-ktx'
+implementation 'com.google.dagger:hilt-android'
+implementation 'com.squareup.retrofit2:retrofit'
+implementation 'com.squareup.retrofit2:converter-gson'
+implementation 'androidx.recyclerview:recyclerview'
+implementation 'com.google.android.material:material'
+```
+
+### Build Process
+1. Import project into Android Studio
+2. Sync Gradle dependencies
+3. Configure build variants
+4. Deploy to device or emulator
+
+## ⚙️ Configuration Management
+
+The system automatically configures based on:
+- **Dynamic API responses** for content structure
+- **Location-based endpoint** selection
+- **Runtime property** mapping
+- **Adaptive UI component** rendering
 
 ## 🌟 Key Innovations
 
-### 1. Universal Entity System
-- **Dynamic JSON Handling**: Works with any API response format
-- **Runtime Field Discovery**: No hardcoded field names
-- **Type-Safe Conversion**: Handles strings, numbers, booleans
-- **Automatic UI Adaptation**: Interface adjusts to data structure
-
-### 2. Professional Architecture
-- **Clean MVVM**: Clear separation of concerns
-- **Dependency Injection**: Modular and testable code
-- **Reactive Programming**: UI automatically updates
-- **Error Boundaries**: Comprehensive failure handling
-
-### 3. Production-Ready Features
-- **Network Resilience**: DNS fallback and retry logic
-- **Lifecycle Awareness**: Prevents memory leaks
-- **State Management**: Survives configuration changes
-- **Security**: Proper authentication token handling
-
-## 🧪 Testing
-
-Current test setup includes:
-- Basic unit test structure
-- Instrumented test framework
-- **Note**: Comprehensive tests would include ViewModel, Repository, and Entity model validation
+- **100% Dynamic Architecture**: Zero hardcoded content dependencies
+- **Universal Data Adapter**: Works with any API response format
+- **Modern Development Stack**: Industry-standard tools and patterns
+- **Robust Error Handling**: Comprehensive failure management
+- **Intuitive User Experience**: Clean, responsive interface
+- **Maintainable Codebase**: Easy to extend and modify
 
 ## 📝 Technical Notes
 
-This project demonstrates:
-- **Industry-standard patterns**: MVVM, Repository, Dependency Injection
-- **Modern Android development**: ViewBinding, LiveData, Coroutines
-- **Clean architecture principles**: Separation of concerns, SOLID principles
-- **Professional UI/UX**: Material Design, responsive layouts
-- **Scalable codebase**: Easy to extend and maintain
-
-## 🐛 Troubleshooting
-
-### Common Issues:
-1. **Build Errors**: Ensure Android SDK API 30+ is installed
-2. **Network Issues**: Check internet connection and API availability
-3. **Login Failures**: Verify credentials: Username="Siddhant", Password="s8091542"
-4. **Gradle Sync**: Clean and rebuild if dependencies fail to resolve
-
-### Debug Steps:
-1. Check Logcat for network and application logs
-2. Verify API endpoints in NetworkModule.kt
-3. Ensure proper emulator/device API level (30+)
+This project showcases:
+- Industry-standard Android development practices
+- Clean architecture implementation principles
+- Modern UI/UX design methodologies
+- Comprehensive error handling strategies
+- Efficient network communication protocols
+- Flexible content management systems
 
 ---
 
@@ -298,17 +204,4 @@ This project demonstrates:
 **Developer**: Siddhant Singh Karki  
 **Student ID**: s8091542  
 **Course**: NIT3213 - Android Application Development  
-**Assignment**: Final Project - Dynamic Mobile Application  
-**Repository**: https://github.com/kid0733/MobileDevAssignment
-
-## 📄 License
-
-This project is for educational purposes as part of the NIT3213 coursework.
-
----
-
-## 🤝 Acknowledgments
-
-- VU Android Development Course Materials
-- Android Architecture Guidelines
-- Material Design 3 Documentation
+**Project**: Final Assignment - Dynamic Mobile Application

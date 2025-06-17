@@ -18,9 +18,14 @@ import dagger.hilt.android.AndroidEntryPoint
 
 /**
  * FILE 10
- * This is the main screen that shows the entity list. It observes the DashboardViewModel for data changes and automatically updates the RecyclerView. It handles loading, error, and empty states professionally."
-Technical version: "I implement complex UI state management with reactive programming. The Activity observes multiple LiveData streams from the ViewModel and manages four distinct UI states. The RecyclerView uses a custom adapter with click handling for navigation."
-Innovation highlight: "The navigation to detail screen showcases my dynamic Entity system - it automatically passes all entity properties without knowing their structure in advance. This makes the app work with any API response format.
+ * This is the main screen that shows the entity list. It observes the DashboardViewModel for data changes and automatically updates the RecyclerView. It handles loading, error, and empty states professionally.
+ * The navigation to detail screen showcases my dynamic Entity system - it automatically passes all entity properties without knowing their structure in advance. This makes the app work with any API response format.
+ * Next we'll look at the EntityAdapter.kt file
+ 
+ 
+ 
+ 
+ 
  * Dashboard Activity that displays a list of entities
  * 
  * This activity uses MVVM architecture with:
@@ -101,6 +106,11 @@ class DashboardActivity : AppCompatActivity() {
         // Set retry button click listener
         binding.buttonRetry.setOnClickListener {
             keypass?.let { viewModel.loadDashboard(it) }
+        }
+        
+        // Set logout button click listener
+        binding.buttonLogout.setOnClickListener {
+            logout()
         }
     }
     

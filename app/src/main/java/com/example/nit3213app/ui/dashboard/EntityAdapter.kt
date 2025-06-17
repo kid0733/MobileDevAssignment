@@ -9,6 +9,17 @@ import com.example.nit3213app.data.model.Entity
 import com.example.nit3213app.databinding.ItemEntityBinding
 
 /**
+ * FILE 11
+ * This adapter displays Entity objects in a RecyclerView list. It dynamically discovers what properties each entity has and displays them without knowing the structure in advance.
+ * I implement a dynamic RecyclerView adapter using ListAdapter with DiffUtil for performance. The adapter uses my Entity model's dynamic methods to discover and display properties at runtime, making it work with any API response structure.
+ * This showcases the power of my Entity design - the same adapter code displays student data, product data, or any other structure the API returns. It's a universal list adapter that adapts to data changes automatically.
+ * Next we'll look at the DetailActivity.kt file
+ 
+ 
+ 
+ 
+ 
+ * 
  * RecyclerView Adapter for displaying Entity items in the dashboard
  * 
  * Uses ListAdapter for efficient list updates with DiffUtil
