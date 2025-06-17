@@ -1,0 +1,80 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme - Dark Cyberpunk Theme -->
+    <style name="Base.Theme.NIT3213App" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Primary colors -->
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryVariant">@color/primary_dark</item>
+        <item name="colorOnPrimary">@color/black</item>
+        
+        <!-- Home as up indicator -->
+        <item name="homeAsUpIndicator">@drawable/ic_arrow_back</item>
+        
+        <!-- Secondary colors -->
+        <item name="colorSecondary">@color/neon_blue</item>
+        <item name="colorSecondaryVariant">@color/neon_purple</item>
+        <item name="colorOnSecondary">@color/white</item>
+        
+        <!-- Background colors -->
+        <item name="android:colorBackground">@color/background</item>
+        <item name="colorSurface">@color/surface</item>
+        <item name="colorOnBackground">@color/text_primary</item>
+        <item name="colorOnSurface">@color/text_primary</item>
+        
+        <!-- Status bar -->
+        <item name="android:statusBarColor">@color/background</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:fitsSystemWindows">true</item>
+        
+        <!-- Navigation bar -->
+        <item name="android:navigationBarColor">@color/background</item>
+        <item name="android:windowLightNavigationBar">false</item>
+        
+        <!-- Error color -->
+        <item name="colorError">@color/error</item>
+    </style>
+
+    <style name="Theme.NIT3213App" parent="Base.Theme.NIT3213App" />
+    
+    <!-- Custom Toolbar Title Style -->
+    <style name="ToolbarTitle" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:fontFamily">monospace</item>
+        <item name="android:letterSpacing">0.1</item>
+        <item name="android:textColor">@color/primary</item>
+    </style>
+    
+    <!-- Custom Toolbar Style -->
+    <style name="CustomToolbar" parent="Widget.MaterialComponents.Toolbar">
+        <item name="android:background">@color/surface</item>
+        <item name="titleTextColor">@color/primary</item>
+        <item name="navigationIconTint">@color/primary</item>
+        <item name="android:minHeight">?attr/actionBarSize</item>
+        <item name="contentInsetStart">16dp</item>
+        <item name="contentInsetStartWithNavigation">72dp</item>
+    </style>
+    
+    <!-- Neon Button Style -->
+    <style name="NeonButton" parent="Widget.MaterialComponents.Button">
+        <item name="android:fontFamily">monospace</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:letterSpacing">0.1</item>
+        <item name="cornerRadius">16dp</item>
+        <item name="strokeWidth">2dp</item>
+        <item name="android:elevation">8dp</item>
+    </style>
+    
+    <!-- Cyber Text Style -->
+    <style name="CyberText" parent="android:Widget.TextView">
+        <item name="android:fontFamily">monospace</item>
+        <item name="android:letterSpacing">0.1</item>
+        <item name="android:textColor">@color/text_primary</item>
+    </style>
+    
+    <!-- Header Text Style -->
+    <style name="HeaderText" parent="CyberText">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/neon_blue</item>
+    </style>
+</resources>
